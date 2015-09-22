@@ -1,11 +1,10 @@
-### Rainbow½éÉÜ:
- »ù´¡Îª:Spring mvc + Spring + mybatis·â×°µÄ¿ª·¢Æ½Ì¨£¬ÊÊÓÃÓÚÎ¢·şÎñ¼Ü¹¹¡£
+### Rainbowä»‹ç»:
+ åŸºç¡€ä¸º:Spring mvc + Spring + mybatiså°è£…çš„å¼€å‘å¹³å°ï¼Œé€‚ç”¨äºå¾®æœåŠ¡æ¶æ„ã€‚
  
-##CRUD·şÎñ±àĞ´£º
+##CRUDæœåŠ¡ç¼–å†™ï¼š
  
- @Lazy
- @Service
- public class DemoService extends BaseService{
+
+ 	public class DemoService extends BaseService{
 		private static final String NAMESPACE = "SYSJMX";
 
 		public RainbowContext query(RainbowContext context) {
@@ -36,14 +35,14 @@
 		}
  }
 
-## ·şÎñµ÷ÓÃ£º
-	RainbowContext context = new RainbowContext("demoService", "query"); //×éÖ¯ÇëÇóÉÏÏÂÎÄ
-        context.addAttr("name","rainbow");//·şÎñ´«²ÎÊı
+## æœåŠ¡è°ƒç”¨ï¼š
+	RainbowContext context = new RainbowContext("demoService", "query"); //ç»„ç»‡è¯·æ±‚ä¸Šä¸‹æ–‡
+        context.addAttr("name","rainbow");//æœåŠ¡ä¼ å‚æ•°
 
-	context = SoaManager.getInstance().invoke(context);//»ùÓÚÊÂÎñµ÷ÓÃ·şÎñ
+	context = SoaManager.getInstance().invoke(context);//åŸºäºäº‹åŠ¡è°ƒç”¨æœåŠ¡
 
-	context = SoaManager.getInstance().invokeNoTx(context);	//»ùÓÚ·ÇÊÂÎñµ÷ÓÃ·şÎñ
+	context = SoaManager.getInstance().invokeNoTx(context);	//åŸºäºéäº‹åŠ¡è°ƒç”¨æœåŠ¡
 	
-	System.out.println("·şÎñ·´À¡ĞÅÏ¢:" + context.getMsg());
-	System.out.println("·şÎñ·´À¡×´Ì¬:" + context.isSuccess());
-	System.out.println("·şÎñ·´À¡½á¹ûÁĞ±í:" + context.getRows());
+	System.out.println("æœåŠ¡åé¦ˆä¿¡æ¯:" + context.getMsg());
+	System.out.println("æœåŠ¡åé¦ˆçŠ¶æ€:" + context.isSuccess());
+	System.out.println("æœåŠ¡åé¦ˆç»“æœåˆ—è¡¨:" + context.getRows());
