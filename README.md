@@ -2,8 +2,8 @@
  基础为:Spring mvc + Spring + mybatis封装的开发平台，适用于微服务架构。
  
 ##CRUD服务编写：
- 
-
+ 	@Lazy
+ 	@Service
  	public class DemoService extends BaseService{
 		private static final String NAMESPACE = "SYSJMX";
 
