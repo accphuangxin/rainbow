@@ -5,7 +5,7 @@
  	@Lazy
  	@Service
  	public class DemoService extends BaseService{
-		private static final String NAMESPACE = "SYSJMX";
+		private static final String NAMESPACE = "SYSJMX"; //mybatis sqlMapper文件 namespace="SYSJMX"
 
 		public RainbowContext query(RainbowContext context) {
 			super.query(context, NAMESPACE);
@@ -29,7 +29,7 @@
 		}
 		
 		public RainbowContext delete(RainbowContext context) {
-			super.getDao().delete(NAMESPACE, "delete", context.getAttr());
+			super.getDao().delete(NAMESPACE, "delete", context.getAttr()); //delete mybatis sqlMapper中的<delete id="delete">
 			context.getAttr().clear();
 			return context;
 		}
@@ -46,3 +46,18 @@
 	System.out.println("服务反馈信息:" + context.getMsg());
 	System.out.println("服务反馈状态:" + context.isSuccess());
 	System.out.println("服务反馈结果列表:" + context.getRows());
+	
+## 服务之间相互调用
+	public RainbowContext delete(RainbowContext context) {
+		//一般调用，依赖当前事务调用
+		SoaManager.getInstance().invoke(new RainbowContext("serivceName","mothedName"));
+		//开启新事物的调用
+		SoaManager.getInstance().callNewTx(new RainbowContext("serivceName","mothedName"));
+		//非事物的调用
+		SoaManager.getInstance().callNoTx(new RainbowContext("serivceName","mothedName"));
+		
+		super.getDao().delete(NAMESPACE, "delete", context.getAttr());
+		context.getAttr().clear();
+		return context;
+	}
+	
