@@ -5,7 +5,7 @@
  	@Lazy
  	@Service
  	public class DemoService extends BaseService{
-		private static final String NAMESPACE = "SYSJMX";
+		private static final String NAMESPACE = "SYSJMX"; //mybatis sqlMapper文件 namespace="SYSJMX"
 
 		public RainbowContext query(RainbowContext context) {
 			super.query(context, NAMESPACE);
@@ -29,7 +29,7 @@
 		}
 		
 		public RainbowContext delete(RainbowContext context) {
-			super.getDao().delete(NAMESPACE, "delete", context.getAttr());
+			super.getDao().delete(NAMESPACE, "delete", context.getAttr()); //delete mybatis 		             		sqlMapper中的<delete id="delete">
 			context.getAttr().clear();
 			return context;
 		}
