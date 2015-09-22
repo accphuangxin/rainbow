@@ -40,7 +40,6 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 @Service("soaInvoker")
 public class SoaInvokerSpringImpl implements SoaInvoker {
 	public static final Logger logger = LogManager.getLogger(SoaInvokerSpringImpl.class);
-	private PlatformTransactionManager txMgr = null;
 	
 	@Override
 	public RainbowContext invoke(RainbowContext context) {
@@ -87,14 +86,13 @@ public class SoaInvokerSpringImpl implements SoaInvoker {
 		}
 		String ds = context.getDs();
 		String txMangerBeanId = "transactionManager";
+		
 		if(ds != null){
 			txMangerBeanId = ds + txMangerBeanId;
 		}
 		
-		if(txMgr == null){
-			txMgr = (PlatformTransactionManager) SpringApplicationContext.getBean(txMangerBeanId);
-		}
-		s.txManager = txMgr;
+		s.txManager = (PlatformTransactionManager) SpringApplicationContext.getBean(txMangerBeanId);
+		
 		s.def = new DefaultTransactionDefinition(txType.intValue());
 		s.def.setIsolationLevel(2);
 		s.canTx = true;

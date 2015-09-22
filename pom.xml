@@ -4,7 +4,7 @@
 
 	<groupId>org.hx.rainbow</groupId>
 	<artifactId>rainbow</artifactId>
-	<version>1.5.9-RELEASE</version>
+	<version>1.5.10-RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>rainbow</name>

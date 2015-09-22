@@ -94,7 +94,7 @@ public class SecurityUtil {
     /**
      * 获取公钥
      * @param modulus 密钥modulus值
-     * @param privateExponent 公钥的Exponent值
+     * @param publicExponent 公钥的Exponent值
      * @return
      * @throws Exception
      */

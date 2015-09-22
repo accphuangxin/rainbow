@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>rainbow</artifactId>
 		<groupId>org.hx.rainbow</groupId>
-		<version>1.5.9-RELEASE</version>
+		<version>1.5.10-RELEASE</version>
 	</parent>
 
 	<artifactId>rainbow-common</artifactId>
