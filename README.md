@@ -29,7 +29,7 @@
 		}
 		
 		public RainbowContext delete(RainbowContext context) {
-			super.getDao().delete(NAMESPACE, "delete", context.getAttr()); //delete mybatis 		             		sqlMapper中的<delete id="delete">
+			super.getDao().delete(NAMESPACE, "delete", context.getAttr()); //delete mybatis sqlMapper中的<delete id="delete">
 			context.getAttr().clear();
 			return context;
 		}
