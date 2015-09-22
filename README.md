@@ -1,6 +1,8 @@
-Rainbow:
+### Rainbow介绍:
  基础为:Spring mvc + Spring + mybatis封装的开发平台，适用于微服务架构。
- CRUD服务编写：
+ 
+##CRUD服务编写：
+ 
  @Lazy
  @Service
  public class DemoService extends BaseService{
@@ -33,7 +35,8 @@ Rainbow:
 			return context;
 		}
  }
- 服务调用：
+
+## 服务调用：
 	RainbowContext context = new RainbowContext("demoService", "query"); //组织请求上下文
         context.addAttr("name","rainbow");//服务传参数
 
