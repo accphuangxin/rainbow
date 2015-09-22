@@ -1,3 +1,13 @@
+﻿=====================================================================
+Rainbow 1.5.9-RELEASE 2015-09-22
+1:重新修改了RSA非对称加密解密API org.hx.rainbow.common.security.rsa包下面内容
+pom:
+新增：	<dependency>
+			<groupId>bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>140</version>
+		</dependency>
+
 =====================================================================
 Rainbow 1.5.8-RELEASE 2015-08-13
 1:增加：SoaManger类中添加invokeNoTx(), 此方法直接获取spring ioc对象进行调用，不开启数据库事务。在service中，如果不需要数据库
