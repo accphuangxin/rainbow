@@ -47,4 +47,6 @@ public class ThreadConstants
   public static final String LOCALE_PROPERTY = "rainbow_locale";
 
   public static final String RAINBOW_SESSION = "rainbow_session";
+  
+  public static final String AUTH_USER = "authUser";
 }

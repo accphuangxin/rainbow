@@ -71,6 +71,10 @@ public class RainbowSession implements java.io.Serializable {
 		return (String)getProperty(ThreadConstants.RAINBOW_LOGINID);
 	}
 	
+	public static String getAuthUser() {
+		return (String)getProperty(ThreadConstants.AUTH_USER);
+	}
+	
 	public static HttpServletRequest getHttpRequest() {
 		return (HttpServletRequest)getProperty(ThreadConstants.RAINBOW_REQUEST);
 	}
@@ -113,11 +117,14 @@ public class RainbowSession implements java.io.Serializable {
 		
 		HttpSession session = request.getSession();
 		
+		setProperty(ThreadConstants.AUTH_USER,session.getAttribute(ThreadConstants.AUTH_USER));
+		
 		UserSession userSession = (UserSession)session.getAttribute(ThreadConstants.RAINBOW_USER);
 		if(userSession != null){
 			setProperty(ThreadConstants.RAINBOW_SESSION,userSession);
 			setProperty(ThreadConstants.RAINBOW_LOGINID,userSession.getLoginId());
 			setProperty(ThreadConstants.RAINBOW_USERNAME,userSession.getUserName());
+
 		 
 			String sessionKeys = (String)RainbowProperties.getProperties(ThreadConstants.SESSION_KEYS);
 			if (sessionKeys != null) {

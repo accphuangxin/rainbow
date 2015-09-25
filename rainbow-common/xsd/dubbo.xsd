@@ -1024,7 +1024,6 @@
 				<xsd:choice minOccurs="0" maxOccurs="unbounded">
 					<xsd:element ref="method" minOccurs="0" maxOccurs="unbounded" />
 					<xsd:element ref="parameter" minOccurs="0" maxOccurs="unbounded" />
-					<xsd:element ref="beans:property" minOccurs="0" maxOccurs="unbounded" />
 				</xsd:choice>
 				<xsd:attribute name="interface" type="xsd:token" use="required">
 					<xsd:annotation>
