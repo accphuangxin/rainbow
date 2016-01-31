@@ -204,6 +204,25 @@ public class DaoMybatisImpl implements Dao{
 	}
 
 
+	@Override
+	public void insertBatch(String namespace, String statement,
+			List<Map<String, Object>> datas) {
+		insertBatch(null, namespace, statement, datas);
+	}
+
+
+	@Override
+	public void insertBatch(String ds, String namespace, String statement,
+			List<Map<String, Object>> datas) {
+		try{
+			getDao(ds).insert(changeStatement(namespace,statement), datas);
+		}catch (Exception e) {
+			String msg = "Error Case:" + e.getMessage() + ";paramData:" + (datas != null ? datas.toString() : "");
+			throw new SysException(msg, e.getCause());
+		}
+	}
+
+
 	
 		
 }

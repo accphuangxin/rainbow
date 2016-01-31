@@ -1,4 +1,31 @@
 =====================================================================
+Rainbow 1.5.11-RELEASE 2016-01-31
+1:在dao中增加批量新增功能:insertBatch 参数List<Map<String, Object>>
+在mybatis的配置参数中加入：例如：
+	<insert id="insertBatch" parameterType="list">
+		INSERT INTO t_sys_user (
+			guid,
+			user_no,
+			user_name,
+			create_time,
+			creater,
+			modifyer,
+			modify_time
+		)
+		VALUES 
+		<foreach collection="list" item="item" index="index" separator=",">  
+       		( 
+			#{item.guid, jdbcType=VARCHAR}, 
+			#{item.userNo, jdbcType=NUMERIC,typeHandler=NumberHandler}, 
+			#{item.userName, jdbcType=VARCHAR}, 
+			#{item.createTime, jdbcType=TIMESTAMP,typeHandler=DateHandler}, 
+			#{item.creater, jdbcType=VARCHAR}, 
+			#{item.modifyer, jdbcType=VARCHAR}, 
+			#{item.modifyTime, jdbcType=TIMESTAMP,typeHandler=DateHandler}		)
+    	</foreach>  
+	</insert>
+
+=====================================================================
 Rainbow 1.5.11-RELEASE 2015-09-25
 1:在RainbowSession中添加一个authUser，为提供跨数据源时，权限支持。authUser里面为orgCode的集合'AA','BB'
 

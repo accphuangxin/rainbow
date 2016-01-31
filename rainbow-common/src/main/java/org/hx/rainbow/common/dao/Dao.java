@@ -47,6 +47,8 @@ public abstract interface Dao
   public abstract Map<String,Object> load(String namespace, String key, String value);
 
   public abstract void insert(String namespace,String statement, Map<String,Object> paramData);
+  
+  public abstract void insertBatch(String namespace,String statement, List<Map<String,Object>> datas);
 
   public abstract int update(String namespace,String statement, Map<String,Object> paramData);
 
@@ -72,6 +74,8 @@ public abstract interface Dao
   public abstract Map<String,Object> load(String ds, String namespace, String key, String value);
 
   public abstract void insert(String ds, String namespace,String statement, Map<String,Object> paramData);
+  
+  public abstract void insertBatch(String ds, String namespace,String statement, List<Map<String,Object>> datas);
 
   public abstract int update(String ds, String namespace,String statement, Map<String,Object> paramData);
 

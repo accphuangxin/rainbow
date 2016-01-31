@@ -4,7 +4,7 @@
 
 	<groupId>org.hx.rainbow</groupId>
 	<artifactId>rainbow</artifactId>
-	<version>1.5.11-RELEASE</version>
+	<version>1.5.12-RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>rainbow</name>
@@ -74,7 +74,7 @@
 
 	<modules>
 		<module>rainbow-common</module>
-	</modules>
+  </modules>
 
 	<dependencyManagement>
 		<dependencies>
